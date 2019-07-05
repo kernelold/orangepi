@@ -1,0 +1,17 @@
+language: c
+compiler: clang
+before_install:
+  - "sudo apt-get -qq update"
+  - "sudo apt-get install -y git libssl-dev libpthread-stubs0-dev libc6 ggcov"
+  - "git clone git://git.drogon.net/wiringPi"
+  - "cd wiringPi  &&  ./build && cd - " 
+#script: 
+# - "mkdir -p /usr/local/bin"
+# - "for i in $(ls -d */) ; do cd  $i ; make ; make install clean ; cd - ; done"
+script:
+  - cd dht11sensor
+  - clang -coverage -lm -lrt -lcrypt -lpthread -Wall -lwiringPi -O2 dht11.c -o dht11
+  - ./dht11 || ls ./
+  - gcov dht11.c
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
