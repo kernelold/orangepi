@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DHT11</title>
+<style>
+    a:link    {color:#11dddd; background-color:transparent; text-decoration:none}
+    a:visited {color:#115555; background-color:transparent; text-decoration:none}
+    a:hover   {color:red; background-color:transparent; text-decoration:underline}
+    a:active  {color:darkred; background-color:transparent; text-decoration:underline}
+body { margin: auto; }
+body > div{
+    display: flex;
+    flex-flow: row wrap;
+}
+body > div > header,main,footer {
+    background: #000000;  background-color:transparent; border-color: #000000; border-radius: 1px; margin: auto; padding: 8px; text-align: center; color:#22dd22;
+}
+body > div > header { order: 1; min-height: 2px; min-width: 50px; flex: 0 1 100%; }
+body > div > main   { order: 2; min-height: 20px; min-width: 50px;  flex: 0 1 100%; }
+body > div > footer { order: 3; min-height: 0px; min-width: 0px; flex: 0 1 100%; }
+</style>
+<script type="text/javascript">function setDynamicBackground(){var t=myCanvas.toDataURL();document.body.style.background="transparent url('"+t+"') repeat"}var myCanvas=document.createElement("canvas");myCanvas.width=500,myCanvas.height=500;var ctx=myCanvas.getContext("2d");ctx.clearRect(0,0,500,500);var grayPalette=["#000000","#001000","#000500","#000800"];for(i=0;i<50;i++)for(j=0;j<50;j++){ctx.beginPath(),ctx.rect(0+10*j,0+10*i,10,10);var randomColorIndex=Math.round(Math.random()*(grayPalette.length-1));ctx.fillStyle=grayPalette[randomColorIndex],ctx.fill(),ctx.strokeStyle="#000000",ctx.stroke(),ctx.closePath()}</script>
+</head>
+<body onload="setDynamicBackground()">
+<div>
+<header>
+<h2>SENSORS</h2>
+</header>
+<main>
+<p>Humidity: {{ data.humidity }}% </p>
+<p>Temperature: {{ data.temperature }} *C </p>
+</main>
+<footer>
+</footer>
+</div>
+</body>
+</html>
