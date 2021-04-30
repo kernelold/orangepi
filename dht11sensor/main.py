@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from subprocess import check_output
 from flask import Flask,render_template
 app = Flask(__name__)
